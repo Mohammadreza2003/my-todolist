@@ -1,0 +1,39 @@
+*{
+    margin:0; 
+   
+}
+
+.li{
+   border-left:solid 3px red  ;
+   padding: 12px;
+}
+.list{
+    border:solid 3px tomato;
+    border-left:solid 3px tomato ;
+    width: 280px;
+    padding: 12px;
+    background-color:skyblue;
+    
+}
+.btn {
+    padding: 5px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #fc058c;
+    border: none;
+    border-radius: 5px;
+        box-shadow: 0 9px rgb(255, 212, 173);
+        transition: 0.2s;
+        outline: none;
+      }
+
+      .btn:hover {
+        background-color: salmon;
+      }
+
+      .btn:active {
+        background-color:rgb(27, 255, 179);
+        box-shadow: 0 2px rgb(250, 244, 161);
+        transform: translateY(7px);
+      }
