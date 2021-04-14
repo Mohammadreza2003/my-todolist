@@ -37,3 +37,16 @@
         box-shadow: 0 2px rgb(250, 244, 161);
         transform: translateY(7px);
       }
+
+      .check{
+          margin: -2px;
+      }
+      .favorite{
+          color:black;
+          margin: -8px;
+      }
+
+      .bttn{
+          background-color: red;
+          border: none;
+      }
