@@ -1,8 +1,12 @@
-import { Checkbox } from '@material-ui/core';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import React from 'react';
 import { useState } from 'react';
 import './app.css';
+import { Checkbox } from '@material-ui/core';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+
 
 function App() {
   const [newDotext,setnewDotext]=useState("");
@@ -29,13 +33,17 @@ const [toDoList,setToDoList]=useState([])
       <list className={"li"}>Done</list>
     </div>
     <div className={"list"}>
-      <input onChange={onchangevalue}></input>
-      <button className={"btn"}onClick={addDo}>add</button>
-      
-    {toDoList.map(item=> <div className={"task"}>{item}</div>)} 
-    <Checkbox className={"check"}></Checkbox> 
-    <FavoriteBorder className={"favorite"}></FavoriteBorder>
-
+      <input onChange={onchangevalue} className={"input"}></input>
+      <Button variant="contained" color="secondary" className ={"btn"}  onClick={addDo}>
+        add
+        </Button>
+    {toDoList.map(item=>
+       <div className={"task"}>
+      {item}
+      <Checkbox className={"check"} color="secondary"></Checkbox> 
+      <FavoriteBorder className={"favorite"} color="secondary"></FavoriteBorder>
+      </div>
+      )} 
     </div>
     </div>
   );
