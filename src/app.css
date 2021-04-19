@@ -1,29 +1,25 @@
-.li{
-   border-left:solid 3px rgb(255, 42, 95)  ;
-   border-left:solid 3px rgb(255, 42, 95)  ;
-   padding: 12px;
+.li {
+  border-left: solid 3px rgb(255, 42, 95);
+  border-left: solid 3px rgb(255, 42, 95);
+  padding: 12px;
 }
-.list{
-    border:solid 3px rgb(255, 42, 95) ;
-    border-radius: 5px;
+.list {
+  border: solid 3px rgb(255, 42, 95);
+  border-radius: 5px;
 
-    width: 280px;
-    padding: 12px;
-    /* background-color:skyblue; */
-    
+  width: 280px;
+  padding: 12px;
+  /* background-color:skyblue; */
 }
-.input{
-    border:solid 3px rgb(255, 42, 95) ;
-    border-radius: 5px;
-    margin: 7px;
+.input {
+  border: solid 3px rgb(255, 42, 95);
+  border-radius: 5px;
+  margin: 7px;
 }
 
-
-     
-
-      .check{
-          margin: -2px;
-      }
-      .favorite{
-          margin: -8px;
-      }
+.check {
+  margin: -2px;
+}
+.favorite {
+  margin: -8px;
+}

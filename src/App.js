@@ -42,7 +42,15 @@ function App() {
           <div className={"task"}>
             {todo}
             <Checkbox className={"check"} color="secondary"></Checkbox>
-            {todo.includes(todo) ? (
+            {faves.includes(todo) ? (
+              <FavoriteIcon
+                className={"favorite"}
+                color="secondary"
+                onClick={() => {
+                  setFaves(faves.filter((item) => item !== todo));
+                }}
+              ></FavoriteIcon>
+            ) : (
               <FavoriteBorder
                 className={"favorite"}
                 color="secondary"
@@ -51,11 +59,7 @@ function App() {
                   setFaves(fav);
                 }}
               ></FavoriteBorder>
-            ) : (
-              <FavoriteIcon></FavoriteIcon>
             )}
-
-            
           </div>
         ))}
       </div>
