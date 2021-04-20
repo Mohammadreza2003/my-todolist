@@ -10,6 +10,7 @@ function App() {
   const [newDotext, setnewDotext] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [faves, setFaves] = useState([]);
+  const [done, setDone] = useState({ checked: true });
   const addDo = () => {
     const newList = [...toDoList, newDotext];
     setToDoList(newList);
@@ -19,6 +20,9 @@ function App() {
   const onchangevalue = (e) => {
     const value = e.target.value;
     setnewDotext(value);
+  };
+  const handleChange = (e) => {
+    setDone({ ...done, [e.target.name]: e.target.checked });
   };
   console.log(faves);
   return (
@@ -41,7 +45,12 @@ function App() {
         {toDoList.map((todo) => (
           <div className={"task"}>
             {todo}
-            <Checkbox className={"check"} color="secondary"></Checkbox>
+            <Checkbox
+              className={"check"}
+              color="secondary"
+              checked={done.checked}
+              onChange={handleChange}
+            ></Checkbox>
             {faves.includes(todo) ? (
               <FavoriteIcon
                 className={"favorite"}
