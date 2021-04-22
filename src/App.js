@@ -5,12 +5,13 @@ import { Checkbox } from "@material-ui/core";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Button from "@material-ui/core/Button";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { TodayOutlined } from "@material-ui/icons";
 
 function App() {
   const [newDotext, setnewDotext] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [faves, setFaves] = useState([]);
-  const [done, setDone] = useState({ checked: true });
+  const [done, setDone] = useState([]);
   const addDo = () => {
     const newList = [...toDoList, newDotext];
     setToDoList(newList);
@@ -21,9 +22,7 @@ function App() {
     const value = e.target.value;
     setnewDotext(value);
   };
-  const handleChange = (e) => {
-    setDone({ ...done, [e.target.name]: e.target.checked });
-  };
+
   console.log(faves);
   return (
     <div className={"conteaner"}>
@@ -48,8 +47,15 @@ function App() {
             <Checkbox
               className={"check"}
               color="secondary"
-              checked={done.checked}
-              onChange={handleChange}
+              checked={done.includes(todo)}
+              onChange={() => {
+                if (done.includes(todo)) {
+                  setDone(done.filter((item) => item !== todo));
+                } else {
+                  setDone ([...done, todo]);
+                  
+                }
+              }}
             ></Checkbox>
             {faves.includes(todo) ? (
               <FavoriteIcon
