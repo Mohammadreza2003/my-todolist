@@ -5,12 +5,16 @@ import { Checkbox } from "@material-ui/core";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Button from "@material-ui/core/Button";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function App() {
   const [newDotext, setnewDotext] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [faves, setFaves] = useState([]);
-  const [done, setDone] = useState([]);
+  const [don, setDon] = useState([]);
+  const [currentTab, setCurrentTab] = useState("doing");
+  const [delet, setDelet] = useState([]);
+
   const addDo = () => {
     const newList = [...toDoList, newDotext];
     setToDoList(newList);
@@ -26,9 +30,9 @@ function App() {
   return (
     <div className={"conteaner"}>
       <div className={"list"}>
-        <list className={"li"}>To Do</list>
-        <list className={"li"}>Favourite</list>
-        <list className={"li"}>Done</list>
+        <Button className={"li"}>To Do</Button>
+        <Button className={"li"}>Favourite</Button>
+        <Button className={"li"}>Done</Button>
       </div>
       <div className={"list"}>
         <input onChange={onchangevalue} className={"input"}></input>
@@ -46,11 +50,11 @@ function App() {
             <Checkbox
               className={"check"}
               color="secondary"
-              checked={done.includes(todo)}
+              checked={don.includes(todo)}
               onChange={() => {
                 setToDoList(toDoList.filter((t) => t !== todo));
 
-                setDone([...done, todo]);
+                setDon([...don, todo]);
               }}
             ></Checkbox>
             {faves.includes(todo) ? (
@@ -74,6 +78,62 @@ function App() {
           </div>
         ))}
       </div>
+      <div className={"list"}>
+        <list>Done</list>
+        {don.map((todo) => (
+          <div className={"task"}>
+            {todo}
+
+            {faves.includes(todo) ? (
+              <FavoriteIcon
+                className={"favoritetwo"}
+                color="secondary"
+                onClick={() => {
+                  setFaves(faves.filter((item) => item !== todo));
+                }}
+              ></FavoriteIcon>
+            ) : (
+              <FavoriteBorder
+                className={"favoritetwo"}
+                color="secondary"
+                onClick={() => {
+                  const fav = [...faves, todo];
+                  setFaves(fav);
+                }}
+              ></FavoriteBorder>
+            )}
+             <DeleteIcon
+             className={"dele"}
+              color="primary"
+              onClick={() => {
+                setDon(don.filter((t) => t !== todo));
+
+                setDelet([...delet, todo]);
+              }}
+            ></DeleteIcon>
+          </div>
+        ))}
+      </div>
+      <div className={"list"}>
+        <list>Favorite</list>
+        {faves.map((todo) => (
+          <div className={"task"}>
+            {todo}
+            <DeleteIcon
+             className={"dele"}
+              color="primary"
+              onClick={() => {
+                setFaves(faves.filter((t) => t !== todo));
+
+                setDelet([...delet, todo]);
+              }}
+            ></DeleteIcon>
+          </div>
+        ))}
+      </div>
+      {currentTab === "doig" && toDoList.map}
+      {currentTab === "done" && don.map}
+      {currentTab === "favorite" && faves.map}
     </div>
   );
 }
