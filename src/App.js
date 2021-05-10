@@ -20,7 +20,17 @@ function App() {
     setToDoList(newList);
     if (!newDotext) alert("Write something");
   };
+const toDo=()=>{
+setCurrentTab("doing")
+}
 
+ const favourite=()=>{
+  setCurrentTab("favourite")
+ }
+
+ const done =()=>{
+  setCurrentTab("done")
+ }
   const onchangevalue = (e) => {
     const value = e.target.value;
     setnewDotext(value);
@@ -30,9 +40,9 @@ function App() {
   return (
     <div className={"conteaner"}>
       <div className={"list"}>
-        <Button className={"li"}>To Do</Button>
-        <Button className={"li"}>Favourite</Button>
-        <Button className={"li"}>Done</Button>
+        <Button className={"li"} onClick={toDo}>To Do</Button>
+        <Button className={"li"} onClick={favourite}>Favourite</Button>
+        <Button className={"li"} onClick={done}>Done</Button>
       </div>
       <div className={"list"}>
         <input onChange={onchangevalue} className={"input"}></input>
@@ -44,7 +54,7 @@ function App() {
         >
           add
         </Button>
-        {toDoList.map((todo) => (
+        {currentTab === "doing" &&  toDoList.map((todo) => (
           <div className={"task"}>
             {todo}
             <Checkbox
@@ -80,7 +90,7 @@ function App() {
       </div>
       <div className={"list"}>
         <list>Done</list>
-        {don.map((todo) => (
+        {currentTab === "done" && don.map((todo) => (
           <div className={"task"}>
             {todo}
 
@@ -115,8 +125,8 @@ function App() {
         ))}
       </div>
       <div className={"list"}>
-        <list>Favorite</list>
-        {faves.map((todo) => (
+        <list>Favourite</list>
+        {currentTab === "favourite" && faves.map((todo) => (
           <div className={"task"}>
             {todo}
             <DeleteIcon
@@ -131,9 +141,6 @@ function App() {
           </div>
         ))}
       </div>
-      {currentTab === "doig" && toDoList.map}
-      {currentTab === "done" && don.map}
-      {currentTab === "favorite" && faves.map}
     </div>
   );
 }
