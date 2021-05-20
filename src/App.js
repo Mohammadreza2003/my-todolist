@@ -16,21 +16,25 @@ function App() {
   const [delet, setDelet] = useState([]);
 
   const addDo = () => {
-    const newList = [...toDoList, newDotext];
-    setToDoList(newList);
-    if (!newDotext) alert("Write something");
+    if (newDotext == "") {
+      return;
+    }
+    if (!toDoList.includes(newDotext)) {
+      const newList = [...toDoList, newDotext];
+      setToDoList(newList);
+    }
   };
-const toDo=()=>{
-setCurrentTab("doing")
-}
+  const toDo = () => {
+    setCurrentTab("doing");
+  };
 
- const favourite=()=>{
-  setCurrentTab("favourite")
- }
+  const favourite = () => {
+    setCurrentTab("favourite");
+  };
 
- const done =()=>{
-  setCurrentTab("done")
- }
+  const done = () => {
+    setCurrentTab("done");
+  };
   const onchangevalue = (e) => {
     const value = e.target.value;
     setnewDotext(value);
@@ -40,9 +44,15 @@ setCurrentTab("doing")
   return (
     <div className={"conteaner"}>
       <div className={"list"}>
-        <Button className={"li"} onClick={toDo}>To Do</Button>
-        <Button className={"li"} onClick={favourite}>Favourite</Button>
-        <Button className={"li"} onClick={done}>Done</Button>
+        <Button className={"li"} onClick={toDo}>
+          To Do
+        </Button>
+        <Button className={"li"} onClick={favourite}>
+          Favourite
+        </Button>
+        <Button className={"li"} onClick={done}>
+          Done
+        </Button>
       </div>
       <div className={"list"}>
         <input onChange={onchangevalue} className={"input"}></input>
@@ -54,92 +64,95 @@ setCurrentTab("doing")
         >
           add
         </Button>
-        {currentTab === "doing" &&  toDoList.map((todo) => (
-          <div className={"task"}>
-            {todo}
-            <Checkbox
-              className={"check"}
-              color="secondary"
-              checked={don.includes(todo)}
-              onChange={() => {
-                setToDoList(toDoList.filter((t) => t !== todo));
+        {currentTab === "doing" &&
+          toDoList.map((todo) => (
+            <div className={"task"}>
+              {todo}
+              <Checkbox
+                className={"check"}
+                color="secondary"
+                checked={don.includes(todo)}
+                onChange={() => {
+                  setToDoList(toDoList.filter((t) => t !== todo));
 
-                setDon([...don, todo]);
-              }}
-            ></Checkbox>
-            {faves.includes(todo) ? (
-              <FavoriteIcon
-                className={"favorite"}
-                color="secondary"
-                onClick={() => {
-                  setFaves(faves.filter((item) => item !== todo));
+                  setDon([...don, todo]);
                 }}
-              ></FavoriteIcon>
-            ) : (
-              <FavoriteBorder
-                className={"favorite"}
-                color="secondary"
-                onClick={() => {
-                  const fav = [...faves, todo];
-                  setFaves(fav);
-                }}
-              ></FavoriteBorder>
-            )}
-          </div>
-        ))}
+              ></Checkbox>
+              {faves.includes(todo) ? (
+                <FavoriteIcon
+                  className={"favorite"}
+                  color="secondary"
+                  onClick={() => {
+                    setFaves(faves.filter((item) => item !== todo));
+                  }}
+                ></FavoriteIcon>
+              ) : (
+                <FavoriteBorder
+                  className={"favorite"}
+                  color="secondary"
+                  onClick={() => {
+                    const fav = [...faves, todo];
+                    setFaves(fav);
+                  }}
+                ></FavoriteBorder>
+              )}
+            </div>
+          ))}
       </div>
       <div className={"list"}>
         <list>Done</list>
-        {currentTab === "done" && don.map((todo) => (
-          <div className={"task"}>
-            {todo}
+        {currentTab === "done" &&
+          don.map((todo) => (
+            <div className={"task"}>
+              {todo}
 
-            {faves.includes(todo) ? (
-              <FavoriteIcon
-                className={"favoritetwo"}
-                color="secondary"
+              {faves.includes(todo) ? (
+                <FavoriteIcon
+                  className={"favoritetwo"}
+                  color="secondary"
+                  onClick={() => {
+                    setFaves(faves.filter((item) => item !== todo));
+                  }}
+                ></FavoriteIcon>
+              ) : (
+                <FavoriteBorder
+                  className={"favoritetwo"}
+                  color="secondary"
+                  onClick={() => {
+                    const fav = [...faves, todo];
+                    setFaves(fav);
+                  }}
+                ></FavoriteBorder>
+              )}
+              <DeleteIcon
+                className={"dele"}
+                color="primary"
                 onClick={() => {
-                  setFaves(faves.filter((item) => item !== todo));
-                }}
-              ></FavoriteIcon>
-            ) : (
-              <FavoriteBorder
-                className={"favoritetwo"}
-                color="secondary"
-                onClick={() => {
-                  const fav = [...faves, todo];
-                  setFaves(fav);
-                }}
-              ></FavoriteBorder>
-            )}
-             <DeleteIcon
-             className={"dele"}
-              color="primary"
-              onClick={() => {
-                setDon(don.filter((t) => t !== todo));
+                  setDon(don.filter((t) => t !== todo));
 
-                setDelet([...delet, todo]);
-              }}
-            ></DeleteIcon>
-          </div>
-        ))}
+                  setDelet([...delet, todo]);
+                }}
+              ></DeleteIcon>
+            </div>
+          ))}
       </div>
       <div className={"list"}>
         <list>Favourite</list>
-        {currentTab === "favourite" && faves.map((todo) => (
-          <div className={"task"}>
-            {todo}
-            <DeleteIcon
-             className={"dele"}
-              color="primary"
-              onClick={() => {
-                setFaves(faves.filter((t) => t !== todo));
+        {currentTab === "favourite" &&
+          faves.map((todo) => (
+            <div className={"task"}>
+              {todo}
+              <DeleteIcon
+                className={"dele"}
+                color="primary"
+                onClick={() => {
+                  setFaves(faves.filter((t) => t !== todo));
 
-                setDelet([...delet, todo]);
-              }}
-            ></DeleteIcon>
-          </div>
-        ))}
+                  setDelet([...delet, todo]);
+                }}
+              ></DeleteIcon>
+            </div>
+          ))}
       </div>
     </div>
   );

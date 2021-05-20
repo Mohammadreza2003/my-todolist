@@ -9,7 +9,7 @@
 
   width: 280px;
   padding: 12px;
-  /* background-color:skyblue; */
+  
 }
 .input {
   border: solid 3px rgb(255, 42, 95);
@@ -22,14 +22,13 @@
 }
 .favorite {
   margin: -8px;
-  
 }
 .favoritetwo {
   margin: -8px;
   margin-left: 4px;
   margin-top: 11px;
 }
-.dele{
+.dele {
   margin: -8px;
   margin-left: 4px;
   margin-top: 11px;
