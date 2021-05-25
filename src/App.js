@@ -17,11 +17,14 @@ function App() {
 
   const addDo = () => {
     if (newDotext == "") {
+      alert("write something");
       return;
     }
     if (!toDoList.includes(newDotext)) {
       const newList = [...toDoList, newDotext];
       setToDoList(newList);
+    } else {
+      alert("This has already been added");
     }
   };
   const toDo = () => {
@@ -44,24 +47,28 @@ function App() {
   return (
     <div className={"conteaner"}>
       <div className={"list"}>
-        <Button className={"li"} onClick={toDo}>
+        <Button
+          className={currentTab === "doing" ? "thistab" : ""}
+          onClick={toDo}
+        >
           To Do
         </Button>
-        <Button className={"li"} onClick={favourite}>
+        <Button
+          className={currentTab === "favourite" ? "thistab" : ""}
+          onClick={favourite}
+        >
           Favourite
         </Button>
-        <Button className={"li"} onClick={done}>
+        <Button
+          className={currentTab === "done" ? "thistab " : ""}
+          onClick={done}
+        >
           Done
         </Button>
       </div>
       <div className={"list"}>
         <input onChange={onchangevalue} className={"input"}></input>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={"btn"}
-          onClick={addDo}
-        >
+        <Button variant="contained" className={"btn"} onClick={addDo}>
           add
         </Button>
         {currentTab === "doing" &&
@@ -126,7 +133,7 @@ function App() {
               )}
               <DeleteIcon
                 className={"dele"}
-                color="primary"
+                color="secondary"
                 onClick={() => {
                   setDon(don.filter((t) => t !== todo));
 
@@ -144,7 +151,7 @@ function App() {
               {todo}
               <DeleteIcon
                 className={"dele"}
-                color="primary"
+                color="secondary"
                 onClick={() => {
                   setFaves(faves.filter((t) => t !== todo));
 

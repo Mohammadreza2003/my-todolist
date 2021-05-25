@@ -1,10 +1,5 @@
-.li {
-  border-left: solid 3px rgb(255, 42, 95);
-  border-left: solid 3px rgb(255, 42, 95);
-  padding: 12px;
-}
 .list {
-  border: solid 3px rgb(255, 42, 95);
+  border: solid 3px #79aeec;
   border-radius: 5px;
 
   width: 280px;
@@ -12,11 +7,14 @@
   
 }
 .input {
-  border: solid 3px rgb(255, 42, 95);
+  border: solid 3px #f2599c;
   border-radius: 5px;
   margin: 7px;
 }
-
+.btn{
+  background: rgb(212,151,242);
+background: radial-gradient(circle, rgba(212,151,242,1) 0%, rgba(153,184,255,1) 100%);
+}
 .check {
   margin: -2px;
 }
@@ -32,4 +30,11 @@
   margin: -8px;
   margin-left: 4px;
   margin-top: 11px;
+  background-color: "#f2599c";
 }
+.thistab{
+  background: rgb(41,41,52);
+  background: linear-gradient(90deg, rgba(41,41,52,1) 0%, rgba(212,151,242,1) 0%, rgba(153,184,255,1) 100%);
+}
+
+ 
