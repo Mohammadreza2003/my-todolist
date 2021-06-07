@@ -1,19 +1,32 @@
+body {
+  background: linear-gradient(to right, #43f061, #12e7dd);
+  height: 97pvh;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .list {
-  border: solid 3px #79aeec;
-  border-radius: 5px;
-
-  width: 280px;
-  padding: 12px;
-  
+  width: 350px;
+  padding: 1em;
+  margin-bottom: 1em;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 10px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(6px);
+  color: #000;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
 }
 .input {
-  border: solid 3px #f2599c;
+  height: 30px;
+  width: 209px;
   border-radius: 5px;
-  margin: 7px;
+  border: 3px solid white;
+  margin-right: 10px;
 }
-.btn{
-  background: rgb(212,151,242);
-background: radial-gradient(circle, rgba(212,151,242,1) 0%, rgba(153,184,255,1) 100%);
+.btn {
+  background: linear-gradient(
+    90deg,
+    rgba(254, 255, 73, 1) 0%,
+    rgba(153, 255, 221, 1) 92%
+  );
 }
 .check {
   margin: -2px;
@@ -32,9 +45,10 @@ background: radial-gradient(circle, rgba(212,151,242,1) 0%, rgba(153,184,255,1) 
   margin-top: 11px;
   background-color: "#f2599c";
 }
-.thistab{
-  background: rgb(41,41,52);
-  background: linear-gradient(90deg, rgba(41,41,52,1) 0%, rgba(212,151,242,1) 0%, rgba(153,184,255,1) 100%);
+.thistab {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 255, 157) 0%,
+    rgb(196, 255, 234) 92%
+  );
 }
-
- 
