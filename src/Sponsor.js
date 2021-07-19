@@ -10,7 +10,7 @@ function Sponsor() {
       .then((response) => {
         const data = response.data.data;
         setSponsors(data);
-        console.log(response.data.data);
+        
       })
       .catch((error) => {});
   }, []);
