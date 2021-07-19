@@ -3,10 +3,10 @@ import "./Login.css";
 import { useHistory } from "react-router-dom";
 
 function Singup() {
-  const [getEmail, setGetEmail] = useState();
-  const [getPassword, setGetPassword] = useState();
-  const [getName, setGetName] = useState();
-  const [getLastName, setGetLastNmae] = useState();
+  const [getEmail, setGetEmail] = useState("");
+  const [getPassword, setGetPassword] = useState("");
+  const [getName, setGetName] = useState("");
+  const [getLastName, setGetLastNmae] = useState("");
   const onchangeEmail = (e) => {
     setGetEmail(e.target.value);
   };

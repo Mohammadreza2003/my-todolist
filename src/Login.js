@@ -36,7 +36,13 @@ function Login() {
         </button>
         <br></br>
         <br></br>
-       <p  className={"p"}>Nem user ?<Link className={"Link"} to="/Signup"> Signup</Link></p>
+        <p className={"p"}>
+          Nem user ?
+          <Link className={"Link"} to="/Signup">
+            {" "}
+            Signup
+          </Link>
+        </p>
       </form>
       <div className={"drops"}>
         <div className={"drop drop-1"}></div>

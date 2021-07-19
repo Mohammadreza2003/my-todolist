@@ -6,8 +6,8 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import Button from "@material-ui/core/Button";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteIcon from "@material-ui/icons/Delete";
-
-
+import Welcome from "./Welcome";
+import Sponsor from "./Sponsor";
 function Home() {
   const [newDotext, setnewDotext] = useState("");
   const [toDoList, setToDoList] = useState([]);
@@ -15,9 +15,8 @@ function Home() {
   const [don, setDon] = useState([]);
   const [currentTab, setCurrentTab] = useState("doing");
   const [delet, setDelet] = useState([]);
-
   const addDo = () => {
-    if (newDotext == "") {
+    if (newDotext === "") {
       alert("write something");
       return;
     }
@@ -43,11 +42,14 @@ function Home() {
     const value = e.target.value;
     setnewDotext(value);
   };
+  let itemSize = " Number of jobs" + " :" + " " + toDoList.length;
+  let fave = " Number of favorites" + " :" + " " + faves.length;
+  let donee = " Number of dones" + " :" + " " + don.length;
 
-  console.log(faves);
   return (
     <div className={"conteaner"}>
       <div className={"list"}>
+        <Welcome name="mammad" />
         <Button
           className={currentTab === "doing" ? "thistab" : ""}
           onClick={toDo}
@@ -55,16 +57,16 @@ function Home() {
           To Do
         </Button>
         <Button
-          className={currentTab === "favourite" ? "thistab" : ""}
-          onClick={favourite}
-        >
-          Favourite
-        </Button>
-        <Button
           className={currentTab === "done" ? "thistab " : ""}
           onClick={done}
         >
           Done
+        </Button>
+        <Button
+          className={currentTab === "favourite" ? "thistab" : ""}
+          onClick={favourite}
+        >
+          Favourite
         </Button>
       </div>
       <div className={"list"}>
@@ -104,6 +106,7 @@ function Home() {
                   }}
                 ></FavoriteBorder>
               )}
+              <p>{itemSize}</p>
             </div>
           ))}
       </div>
@@ -141,6 +144,7 @@ function Home() {
                   setDelet([...delet, todo]);
                 }}
               ></DeleteIcon>
+              <p>{donee}</p>
             </div>
           ))}
       </div>
@@ -159,9 +163,11 @@ function Home() {
                   setDelet([...delet, todo]);
                 }}
               ></DeleteIcon>
+              <p>{fave}</p>
             </div>
           ))}
       </div>
+      <Sponsor />
     </div>
   );
 }
