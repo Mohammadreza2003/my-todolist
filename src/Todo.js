@@ -71,9 +71,10 @@ function Todo() {
                   }}
                 ></FavoriteBorder>
               )}
-              <p>{itemSize}</p>
+             
             </div>
           ))}
+           <p>{itemSize}</p>
       </div>
     </>
   );

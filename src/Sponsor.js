@@ -10,25 +10,25 @@ function Sponsor() {
       .then((response) => {
         const data = response.data.data;
         setSponsors(data);
-        
       })
       .catch((error) => {});
   }, []);
   return (
     <>
-    <h2 className={"h2"}>Project sponsors</h2>
-    <div className={"cont"}>
-      {sponsors.map((sponsor) => (
-        <div className={"sponsors"}>
-          <img className={"img"} src={sponsor.avatar} />
-          <br />
-          {sponsor.first_name + " "}
-          {sponsor.last_name}
-          <br />
-          {sponsor.email}
-        </div>
-      ))}
-    </div>
+      <h2 className={"h2"}>Project sponsors</h2>
+      <div className={"cont"}>
+        {sponsors.map((sponsor) => (
+          <div className={"sponsors"}>
+            <img className={"img"} src={sponsor.avatar} />
+            <br />
+            <div className={"text-one"}>
+              {sponsor.first_name + " " + sponsor.last_name}
+            </div>
+            <br />
+            <div className={"text-two"}>{sponsor.email}</div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

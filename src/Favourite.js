@@ -31,9 +31,10 @@ function Favourite() {
                   setDelet([...delet, todo]);
                 }}
               ></DeleteIcon>
-              <p>{fave}</p>
+             
             </div>
           ))}
+           <p>{fave}</p>
       </div>
     </>
   );
