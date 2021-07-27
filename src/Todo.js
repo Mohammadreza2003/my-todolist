@@ -5,7 +5,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Checkbox } from "@material-ui/core";
 import { useState } from "react";
 import "./Home.css";
-import "./Home"
+import "./Home";
 function Todo() {
   const [newDotext, setnewDotext] = useState("");
   const [toDoList, setToDoList] = useState([]);
@@ -34,13 +34,14 @@ function Todo() {
   let itemSize = " Number of jobs" + " :" + " " + toDoList.length;
   return (
     <>
-      <div className={"list"}>
-        <input onChange={onchangevalue} className={"input"}></input>
-        <Button variant="contained" className={"btn"} onClick={addDo}>
-          add
-        </Button>
-        {currentTab === "doing" &&
-          toDoList.map((todo) => (
+      {currentTab === "doing" && (
+        <div className={"list"}>
+          <input onChange={onchangevalue} className={"input"}></input>
+          <Button variant="contained" className={"btn"} onClick={addDo}>
+            add
+          </Button>
+
+          {toDoList.map((todo) => (
             <div className={"task"}>
               {todo}
               <Checkbox
@@ -71,11 +72,11 @@ function Todo() {
                   }}
                 ></FavoriteBorder>
               )}
-             
             </div>
           ))}
-           <p>{itemSize}</p>
-      </div>
+          <p>{itemSize}</p>
+        </div>
+      )}
     </>
   );
 }

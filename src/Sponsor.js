@@ -21,11 +21,9 @@ function Sponsor() {
           <div className={"sponsors"}>
             <img className={"img"} src={sponsor.avatar} />
             <br />
-            <div className={"text-one"}>
-              {sponsor.first_name + " " + sponsor.last_name}
-            </div>
+            <div>{sponsor.first_name + " " + sponsor.last_name}</div>
             <br />
-            <div className={"text-two"}>{sponsor.email}</div>
+            <div>{sponsor.email}</div>
           </div>
         ))}
       </div>

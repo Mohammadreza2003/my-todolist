@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./Home.css";
-import "./Home"
+import "./Home";
 import DeleteIcon from "@material-ui/icons/Delete";
-
 
 function Favourite() {
   const [faves, setFaves] = useState([]);
@@ -15,11 +14,10 @@ function Favourite() {
   let fave = " Number of favorites" + " :" + " " + faves.length;
   return (
     <>
-     
-      <div className={"list"}>
-        <list>Favourite</list>
-        {currentTab === "favourite" &&
-          faves.map((todo) => (
+      {currentTab === "favourite" && (
+        <div className={"list"}>
+          <list>Favourite</list>
+          {faves.map((todo) => (
             <div className={"task"}>
               {todo}
               <DeleteIcon
@@ -31,11 +29,11 @@ function Favourite() {
                   setDelet([...delet, todo]);
                 }}
               ></DeleteIcon>
-             
             </div>
           ))}
-           <p>{fave}</p>
-      </div>
+        </div>
+      )}
+      <p>{fave}</p>
     </>
   );
 }

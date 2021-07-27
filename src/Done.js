@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Home.css";
-import "./Home"
+import "./Home";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -17,10 +17,11 @@ function Done() {
   let donee = " Number of dones" + " :" + " " + don.length;
   return (
     <>
-      <div className={"list"}>
-        <list>Done</list>
-        {currentTab === "done" &&
-          don.map((todo) => (
+      {currentTab === "done" && (
+        <div className={"list"}>
+          <list>Done</list>
+
+          {don.map((todo) => (
             <div className={"task"}>
               {todo}
 
@@ -51,10 +52,11 @@ function Done() {
                   setDelet([...delet, todo]);
                 }}
               ></DeleteIcon>
-              <p>{donee}</p>
             </div>
           ))}
-      </div>
+        </div>
+      )}
+      <p>{donee}</p>
     </>
   );
 }
