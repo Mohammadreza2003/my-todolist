@@ -6,60 +6,46 @@ import { Checkbox } from "@material-ui/core";
 import { useState } from "react";
 import "./Home.css";
 import "./Home";
-function Todo() {
+function Todo(props) {
   const [newDotext, setnewDotext] = useState("");
-  const [toDoList, setToDoList] = useState([]);
-  const [faves, setFaves] = useState([]);
-  const [don, setDon] = useState([]);
-  const [currentTab, setCurrentTab] = useState("doing");
   const addDo = () => {
     if (newDotext === "") {
       alert("write something");
       return;
     }
-    if (!toDoList.includes(newDotext)) {
-      const newList = [...toDoList, newDotext];
-      setToDoList(newList);
-    } else {
-      alert("This has already been added");
-    }
+    props.onAddTodo(newDotext);
   };
-  const toDo = () => {
-    setCurrentTab("doing");
-  };
+  
   const onchangevalue = (e) => {
     const value = e.target.value;
     setnewDotext(value);
   };
-  let itemSize = " Number of jobs" + " :" + " " + toDoList.length;
+  let itemSize = " Number of jobs" + " :" + " " + props.toDoList.length;
   return (
     <>
-      {currentTab === "doing" && (
+      
         <div className={"list"}>
           <input onChange={onchangevalue} className={"input"}></input>
           <Button variant="contained" className={"btn"} onClick={addDo}>
             add
           </Button>
 
-          {toDoList.map((todo) => (
+          {props.toDoList.map((todo) => (
             <div className={"task"}>
               {todo}
               <Checkbox
                 className={"check"}
                 color="secondary"
-                checked={don.includes(todo)}
                 onChange={() => {
-                  setToDoList(toDoList.filter((t) => t !== todo));
-
-                  setDon([...don, todo]);
+                  props.onDonePressed(todo);
                 }}
               ></Checkbox>
-              {faves.includes(todo) ? (
+              {props.faves.includes(todo) ? (
                 <FavoriteIcon
                   className={"favorite"}
                   color="secondary"
                   onClick={() => {
-                    setFaves(faves.filter((item) => item !== todo));
+                    props.onFavePressed(todo);
                   }}
                 ></FavoriteIcon>
               ) : (
@@ -67,8 +53,7 @@ function Todo() {
                   className={"favorite"}
                   color="secondary"
                   onClick={() => {
-                    const fav = [...faves, todo];
-                    setFaves(fav);
+                    props.onFavePressed(todo);
                   }}
                 ></FavoriteBorder>
               )}
@@ -76,7 +61,7 @@ function Todo() {
           ))}
           <p>{itemSize}</p>
         </div>
-      )}
+      
     </>
   );
 }

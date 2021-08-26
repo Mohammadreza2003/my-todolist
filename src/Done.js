@@ -6,57 +6,47 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function Done() {
-  const [faves, setFaves] = useState([]);
-  const [don, setDon] = useState([]);
-  const [currentTab, setCurrentTab] = useState("doing");
-  const [delet, setDelet] = useState([]);
-  const done = () => {
-    setCurrentTab("done");
-  };
-  let donee = " Number of dones" + " :" + " " + don.length;
+function Done(props) {
+  let donee = " Number of dones" + " :" + " " + props.don.length;
   return (
     <>
-      {currentTab === "done" && (
-        <div className={"list"}>
-          <list>Done</list>
+      <div className={"list"}>
+        <list>Done</list>
 
-          {don.map((todo) => (
-            <div className={"task"}>
-              {todo}
+        {props.don.map((todo) => (
+          <div className={"task"}>
+            {todo}
 
-              {faves.includes(todo) ? (
-                <FavoriteIcon
-                  className={"favoritetwo"}
-                  color="secondary"
-                  onClick={() => {
-                    setFaves(faves.filter((item) => item !== todo));
-                  }}
-                ></FavoriteIcon>
-              ) : (
-                <FavoriteBorder
-                  className={"favoritetwo"}
-                  color="secondary"
-                  onClick={() => {
-                    const fav = [...faves, todo];
-                    setFaves(fav);
-                  }}
-                ></FavoriteBorder>
-              )}
-              <DeleteIcon
-                className={"dele"}
+            {props.faves.includes(todo) ? (
+              <FavoriteIcon
+                className={"favoritetwo"}
                 color="secondary"
                 onClick={() => {
-                  setDon(don.filter((t) => t !== todo));
-
-                  setDelet([...delet, todo]);
+                  props.onFavePressed(todo);
                 }}
-              ></DeleteIcon>
-            </div>
-          ))}
-        </div>
-      )}
-      <p>{donee}</p>
+              ></FavoriteIcon>
+            ) : (
+              <FavoriteBorder
+                className={"favoritetwo"}
+                color="secondary"
+                onClick={() => {
+                  props.onFavePressed(todo);
+                }}
+              ></FavoriteBorder>
+            )}
+            <DeleteIcon
+              className={"dele"}
+              color="secondary"
+              onClick={() => {
+                props.onDeletePressed(todo);
+              }}
+            ></DeleteIcon>
+          </div>
+        ))}
+         <p>{donee}</p>
+      </div>
+
+     
     </>
   );
 }

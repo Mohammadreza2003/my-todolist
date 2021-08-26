@@ -9,6 +9,10 @@ import Welcome from "./Welcome";
 import Sponsor from "./Sponsor";
 function Home() {
   const [currentTab, setCurrentTab] = useState("doing");
+  const [toDoList, setToDoList] = useState([]);
+  const [faves, setFaves] = useState([]);
+  const [don, setDon] = useState([]);
+  const [delet, setDelet] = useState([]);
 
   const toDo = () => {
     setCurrentTab("doing");
@@ -45,9 +49,58 @@ function Home() {
           Favourite
         </Button>
       </div>
-      <Todo />
-      <Done />
-      <Favourite />
+      {currentTab === "doing" &&  <Todo
+        onDonePressed={(todo) => {
+          setToDoList(toDoList.filter((t) => t !== todo));
+
+          setDon([...don, todo]);
+        }}
+        onFavePressed={(todo) => {
+          if (faves.includes(todo)) {
+            setFaves(faves.filter((item) => item !== todo));
+          } else {
+            const fav = [...faves, todo];
+            setFaves(fav);
+          }
+        }}
+        faves={faves}
+        toDoList={toDoList}
+        onAddTodo={(newTodo) => {
+          if (!toDoList.includes(newTodo)) {
+            const newList = [...toDoList, newTodo];
+            setToDoList(newList);
+          } else {
+            alert("This has already been added");
+          }
+        }}
+      />}
+      {currentTab === "done" &&  <Done
+        onFavePressed={(todo) => {
+          if (faves.includes(todo)) {
+            setFaves(faves.filter((item) => item !== todo));
+          } else {
+            const fav = [...faves, todo];
+            setFaves(fav);
+          }
+        }}
+        onDeletePressed={(todo) => {
+          setDon(don.filter((t) => t !== todo));
+
+          setDelet([...delet, todo]);
+        }}
+        faves={faves}
+        don={don}
+
+      />}
+     
+     {currentTab === "favourite" &&  <Favourite
+        onDeletePressed={(todo) => {
+          setFaves(faves.filter((t) => t !== todo));
+
+          setDelet([...delet, todo]);
+        }}
+        faves={faves}
+      />}
       <Sponsor />
     </div>
   );

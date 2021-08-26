@@ -3,8 +3,8 @@ import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 
 function Login() {
-  const [getEmail, setGetEmail] = useState();
-  const [getPassword, setGetPassword] = useState();
+  const [getEmail, setGetEmail] = useState("");
+  const [getPassword, setGetPassword] = useState("");
   const onchangeEmail = (e) => {
     setGetEmail(e.target.value);
   };
@@ -13,7 +13,10 @@ function Login() {
   };
   const history = useHistory();
   const handleClick = () => {
-    if (getEmail === "test@gmail.com" && getPassword === "test123456") {
+    if (getEmail === "" && getPassword === "") {
+      let  num = Math.floor((Math.random() * 100000)+1);
+      var local = num.toString();
+      localStorage.setItem("auth-token", local["auth-token"]);
       history.push("/Home");
     }
   };
