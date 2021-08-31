@@ -31,12 +31,16 @@ const PublicRoute = ({ component, ...props }) => {
     />
   );
 };
-const PrivateRoute = ({render, ...props}) => {
-  return <Route {...props} render={(props) => {
-    if (isLogin())
-      return render(props);
-    else return <Redirect to={"/"}/>
-  }}/>
-}
+const PrivateRoute = ({ render, ...props }) => {
+  return (
+    <Route
+      {...props}
+      render={(props) => {
+        if (isLogin()) return render(props);
+        else return <Redirect to={"/"} />;
+      }}
+    />
+  );
+};
 
 export default App;

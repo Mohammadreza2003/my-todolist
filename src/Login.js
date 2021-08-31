@@ -15,8 +15,11 @@ function Login() {
   const handleClick = () => {
     if (getEmail === "" && getPassword === "") {
       let  num = Math.floor((Math.random() * 100000)+1);
+      console.log(num);
       var local = num.toString();
-      localStorage.setItem("auth-token", local["auth-token"]);
+      console.log(local);
+      localStorage.setItem("auth-token", local);
+      console.log(local);
       history.push("/Home");
     }
   };
