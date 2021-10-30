@@ -13,14 +13,14 @@ function Login() {
   };
   const history = useHistory();
   const handleClick = () => {
-    if (getEmail === "" && getPassword === "") {
-      let  num = Math.floor((Math.random() * 100000)+1);
+    if (getEmail.length > 0 && getPassword.length > 0) {
+      let num = Math.floor(Math.random() * 100000 + 1);
       console.log(num);
       var local = num.toString();
       console.log(local);
       localStorage.setItem("auth-token", local);
       console.log(local);
-      history.push("/Home");
+      history.push("/");
     }
   };
 

@@ -49,58 +49,63 @@ function Home() {
           Favourite
         </Button>
       </div>
-      {currentTab === "doing" &&  <Todo
-        onDonePressed={(todo) => {
-          setToDoList(toDoList.filter((t) => t !== todo));
+      {currentTab === "doing" &&(
+        <Todo
+          onDonePressed={(todo) => {
+            setToDoList(toDoList.filter((t) => t !== todo));
 
-          setDon([...don, todo]);
-        }}
-        onFavePressed={(todo) => {
-          if (faves.includes(todo)) {
-            setFaves(faves.filter((item) => item !== todo));
-          } else {
-            const fav = [...faves, todo];
-            setFaves(fav);
-          }
-        }}
-        faves={faves}
-        toDoList={toDoList}
-        onAddTodo={(newTodo) => {
-          if (!toDoList.includes(newTodo)) {
-            const newList = [...toDoList, newTodo];
-            setToDoList(newList);
-          } else {
-            alert("This has already been added");
-          }
-        }}
-      />}
-      {currentTab === "done" &&  <Done
-        onFavePressed={(todo) => {
-          if (faves.includes(todo)) {
-            setFaves(faves.filter((item) => item !== todo));
-          } else {
-            const fav = [...faves, todo];
-            setFaves(fav);
-          }
-        }}
-        onDeletePressed={(todo) => {
-          setDon(don.filter((t) => t !== todo));
+            setDon([...don, todo]);
+          }}
+          onFavePressed={(todo) => {
+            if (faves.includes(todo)) {
+              setFaves(faves.filter((item) => item !== todo));
+            } else {
+              const fav = [...faves, todo];
+              setFaves(fav);
+            }
+          }}
+          faves={faves}
+          toDoList={toDoList}
+          onAddTodo={(newTodo) => {
+            if (!toDoList.includes(newTodo)) {
+              const newList = [...toDoList, newTodo];
+              setToDoList(newList);
+            } else {
+              alert("This has already been added");
+            }
+          }}
+        />
+      )}
+      {currentTab === "done" && (
+        <Done
+          onFavePressed={(todo) => {
+            if (faves.includes(todo)) {
+              setFaves(faves.filter((item) => item !== todo));
+            } else {
+              const fav = [...faves, todo];
+              setFaves(fav);
+            }
+          }}
+          onDeletePressed={(todo) => {
+            setDon(don.filter((t) => t !== todo));
 
-          setDelet([...delet, todo]);
-        }}
-        faves={faves}
-        don={don}
+            setDelet([...delet, todo]);
+          }}
+          faves={faves}
+          don={don}
+        />
+      )}
 
-      />}
-     
-     {currentTab === "favourite" &&  <Favourite
-        onDeletePressed={(todo) => {
-          setFaves(faves.filter((t) => t !== todo));
+      {currentTab === "favourite" && (
+        <Favourite
+          onDeletePressed={(todo) => {
+            setFaves(faves.filter((t) => t !== todo));
 
-          setDelet([...delet, todo]);
-        }}
-        faves={faves}
-      />}
+            setDelet([...delet, todo]);
+          }}
+          faves={faves}
+        />
+      )}
       <Sponsor />
     </div>
   );

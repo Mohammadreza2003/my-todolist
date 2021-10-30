@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "./Home.css";
 import "./Home";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";

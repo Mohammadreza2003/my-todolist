@@ -15,7 +15,13 @@ function Todo(props) {
     }
     props.onAddTodo(newDotext);
   };
-  
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+     addDo()
+    }
+  };
+
   const onchangevalue = (e) => {
     const value = e.target.value;
     setnewDotext(value);
@@ -23,45 +29,43 @@ function Todo(props) {
   let itemSize = " Number of jobs" + " :" + " " + props.toDoList.length;
   return (
     <>
-      
-        <div className={"list"}>
-          <input onChange={onchangevalue} className={"input"}></input>
-          <Button variant="contained" className={"btn"} onClick={addDo}>
-            add
-          </Button>
+      <div className={"list"}>
+        <input onChange={onchangevalue} className={"input"}  onKeyDown={handleKeyDown}></input>
+        <Button variant="contained" className={"btn"} onClick={addDo}>
+          add
+        </Button>
 
-          {props.toDoList.map((todo) => (
-            <div className={"task"}>
-              {todo}
-              <Checkbox
-                className={"check"}
+        {props.toDoList.map((todo) => (
+          <div className={"task"}>
+            {todo}
+            <Checkbox
+              className={"check"}
+              color="secondary"
+              onChange={() => {
+                props.onDonePressed(todo);
+              }}
+            ></Checkbox>
+            {props.faves.includes(todo) ? (
+              <FavoriteIcon
+                className={"favorite"}
                 color="secondary"
-                onChange={() => {
-                  props.onDonePressed(todo);
+                onClick={() => {
+                  props.onFavePressed(todo);
                 }}
-              ></Checkbox>
-              {props.faves.includes(todo) ? (
-                <FavoriteIcon
-                  className={"favorite"}
-                  color="secondary"
-                  onClick={() => {
-                    props.onFavePressed(todo);
-                  }}
-                ></FavoriteIcon>
-              ) : (
-                <FavoriteBorder
-                  className={"favorite"}
-                  color="secondary"
-                  onClick={() => {
-                    props.onFavePressed(todo);
-                  }}
-                ></FavoriteBorder>
-              )}
-            </div>
-          ))}
-          <p>{itemSize}</p>
-        </div>
-      
+              ></FavoriteIcon>
+            ) : (
+              <FavoriteBorder
+                className={"favorite"}
+                color="secondary"
+                onClick={() => {
+                  props.onFavePressed(todo);
+                }}
+              ></FavoriteBorder>
+            )}
+          </div>
+        ))}
+        <p>{itemSize}</p>
+      </div>
     </>
   );
 }

@@ -9,35 +9,27 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
-          <PublicRoute path={"/Home"} component={Home} />
           <Route path={"/Signup"} component={Signup} />
-          <PrivateRoute exact path={"/"} component={Login}></PrivateRoute>
+          <Route path={"/login"} component={Login} />
+          <PrivateRoute path={"/"}>
+            <Home />
+          </PrivateRoute>
         </Switch>
       </BrowserRouter>
     </>
   );
 }
 const isLogin = () => !!localStorage.getItem("auth-token");
-const PublicRoute = ({ component, ...props }) => {
+const PrivateRoute = ({ children, ...props }) => {
   return (
     <Route
       {...props}
-      render={(props) => {
-        if (isLogin()) return <Redirect to={"/Home"} />;
-        else {
-          return React.createElement(component, props);
+      render={(innerProps) => {
+        if (!isLogin()) {
+          return <Redirect to={{ pathname: "/login" }} />;
+        } else {
+          return children;
         }
-      }}
-    />
-  );
-};
-const PrivateRoute = ({ render, ...props }) => {
-  return (
-    <Route
-      {...props}
-      render={(props) => {
-        if (isLogin()) return render(props);
-        else return <Redirect to={"/"} />;
       }}
     />
   );
