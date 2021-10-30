@@ -37,11 +37,11 @@ function Singup() {
       password: getPassword,
     };
     console.log(user);
-    history.push("/");
+    history.push("/Home");
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <form>
         <h2>Welcome</h2>
         <br></br>
