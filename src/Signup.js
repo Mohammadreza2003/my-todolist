@@ -37,7 +37,7 @@ function Singup() {
       password: getPassword,
     };
     console.log(user);
-    history.push("/Home");
+    history.push("/");
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Home";
 import Signup from "./Signup";
 import Login from "./Login";
+import Settings from "./Settings";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
@@ -11,9 +12,13 @@ function App() {
         <Switch>
           <Route path={"/Signup"} component={Signup} />
           <Route path={"/login"} component={Login} />
+          <PrivateRoute path={"/Settings"}>
+            <Settings />
+          </PrivateRoute>
           <PrivateRoute path={"/"}>
             <Home />
           </PrivateRoute>
+          
         </Switch>
       </BrowserRouter>
     </>

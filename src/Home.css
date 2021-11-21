@@ -24,11 +24,8 @@ body {
   margin-right: 10px;
 }
 .btn {
-  background: linear-gradient(
-    90deg,
-    rgba(254, 255, 73, 1) 0%,
-    rgba(153, 255, 221, 1) 92%
-  );
+  background: rgb(255,255,126);
+  background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
 }
 .check {
   margin: -2px;
@@ -48,9 +45,6 @@ body {
   background-color: "#f2599c";
 }
 .thistab {
-  background: linear-gradient(
-    90deg,
-    rgb(255, 255, 157) 0%,
-    rgb(196, 255, 234) 92%
-  );
+  background: rgb(255,255,126);
+  background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
 }

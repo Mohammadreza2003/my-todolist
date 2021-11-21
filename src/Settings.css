@@ -1,0 +1,53 @@
+.h1 {
+  text-align: center;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.63);
+  border-radius: 1px;
+}
+.Lik {
+  border-bottom: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+}
+.back{
+  margin-top: -55.5px;
+  
+}
+.Home{
+  margin-top: -53.5px;
+  margin-left: 18px;
+  font-size: large;
+}
+.Theme{
+  margin-right: 10px;
+}
+.backgroundForm {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 10px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(6px);
+  color: #000;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.form {
+  border-radius: 7px;
+  width: 131px;
+}
+.but {
+  background: rgb(255,255,126);
+  background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 3px 6px;
+  margin-left: 10px;
+}
