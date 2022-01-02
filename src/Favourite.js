@@ -1,16 +1,16 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./Home.css";
 import "./Home.js";
 import DeleteIcon from "@material-ui/icons/Delete";
-
+import { themeContext } from "./App";
 function Favourite(props) {
   let fave = " Number of favorites" + " :" + " " + props.faves.length;
+  const theme = useContext(themeContext)
   return (
     <>
       <div className={"list"}>
-        <list>Favourite</list>
         {props.faves.map((todo) => (
-          <div className={"task"}>
+          <div className={("task ") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>
             {todo}
             <DeleteIcon
               className={"dele"}
@@ -21,7 +21,7 @@ function Favourite(props) {
             ></DeleteIcon>
           </div>
         ))}
-        <p>{fave}</p>
+        <p className={theme.darkMode === "dark" ? "textDarkMode" : ""}>{fave}</p>
       </div>
     </>
   );

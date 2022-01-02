@@ -1,19 +1,18 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./Home.css";
 import "./Home";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteIcon from "@material-ui/icons/Delete";
-
+import { themeContext } from "./App";
 function Done(props) {
   let donee = " Number of dones" + " :" + " " + props.don.length;
+  const theme = useContext(themeContext)
   return (
     <>
       <div className={"list"}>
-        <list>Done</list>
-
         {props.don.map((todo) => (
-          <div className={"task"}>
+          <div className={("task ") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>
             {todo}
 
             {props.faves.includes(todo) ? (
@@ -42,7 +41,7 @@ function Done(props) {
             ></DeleteIcon>
           </div>
         ))}
-         <p>{donee}</p>
+         <p className={theme.darkMode === "dark" ? "textDarkMode" : ""}>{donee}</p>
       </div>
 
      

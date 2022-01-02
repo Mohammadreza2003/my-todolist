@@ -1,19 +1,21 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Home.css";
-import Button from "@material-ui/core/Button";
 import Todo from "./Todo";
 import Done from "./Done";
 import Favourite from "./Favourite";
 import Welcome from "./Welcome";
 import Sponsor from "./Sponsor";
+import { themeContext } from "./App";
+import { Link } from 'react-router-dom'
+import SettingsIcon from '@mui/icons-material/Settings';
 function Home() {
   const [currentTab, setCurrentTab] = useState("doing");
   const [toDoList, setToDoList] = useState([]);
   const [faves, setFaves] = useState([]);
   const [don, setDon] = useState([]);
   const [delet, setDelet] = useState([]);
-
+  const theme = useContext(themeContext)
   const toDo = () => {
     setCurrentTab("doing");
   };
@@ -27,29 +29,34 @@ function Home() {
   };
 
   return (
-    <div className={"conteaner"}>
+    <div className={(" conteaner") + (theme.darkMode === "dark" ? " conteaner-darkmode" : " ")}>
+      <Link className={"icon-setting"} to="/Settings">
+        {" "}
+        <SettingsIcon className={"back"} color="secondary" />
+      </Link>
+      <p className={("text-setting") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Setting</p>
       <div className={"list"}>
         <Welcome name="mammad" />
-        <Button
-          className={currentTab === "doing" ? "thistab" : ""}
+        <button
+          className={'tab ' + (currentTab === "doing" ? "thistab " : " ") + (theme.darkMode === "dark" ? " buttonDarkMode" : " ")}
           onClick={toDo}
         >
           To Do
-        </Button>
-        <Button
-          className={currentTab === "done" ? "thistab " : ""}
+        </button>
+        <button
+          className={'tab ' + (currentTab === "done" ? "thistab " : " ") + (theme.darkMode === "dark" ? " buttonDarkMode" : " ")}
           onClick={done}
         >
           Done
-        </Button>
-        <Button
-          className={currentTab === "favourite" ? "thistab" : ""}
+        </button>
+        <button
+          className={'tab ' + (currentTab === "favourite" ? "thistab " : " ") + (theme.darkMode === "dark" ? " buttonDarkMode" : "  ")}
           onClick={favourite}
         >
           Favourite
-        </Button>
+        </button>
       </div>
-      {currentTab === "doing" &&(
+      {currentTab === "doing" && (
         <Todo
           onDonePressed={(todo) => {
             setToDoList(toDoList.filter((t) => t !== todo));

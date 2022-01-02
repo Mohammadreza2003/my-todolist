@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
-
+import { themeContext } from "./App";
 function Singup() {
   const [getEmail, setGetEmail] = useState("");
   const [getPassword, setGetPassword] = useState("");
   const [getName, setGetName] = useState("");
   const [getLastName, setGetLastNmae] = useState("");
+  const theme = useContext(themeContext)
   const onchangeEmail = (e) => {
     setGetEmail(e.target.value);
   };
@@ -41,9 +42,9 @@ function Singup() {
   };
 
   return (
-    <div className="container">
+    <div className={("background-conteaner ") + (theme.darkMode === "dark" ? " background-darkmode" : " ")}>
       <form>
-        <h2>Welcome</h2>
+        <h2 className={("h2 ")+(theme.darkMode === "dark" ? " textDarkMode" : " ")}>Welcome</h2>
         <br></br>
         <input type="name" placeholder="Name" onChange={onchangeName} />
         <br></br>
@@ -61,14 +62,10 @@ function Singup() {
           onChange={onchangePassword}
         />
         <br></br>
-        <button className={"button"} onClick={handleClick}>
+        <button className={("button ")+(theme.darkMode === "dark" ? " buttonDark" : " ")} onClick={handleClick}>
           Signup
         </button>
       </form>
-      <div className={"drops"}>
-        <div className={"drop drop-1"}></div>
-        <div className={"drop drop-2"}></div>
-      </div>
     </div>
   );
 }

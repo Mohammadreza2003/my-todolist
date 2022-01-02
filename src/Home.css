@@ -1,7 +1,20 @@
-body {
-  background: linear-gradient(to right, #43f061, #12e7dd);
-  height: 97pvh;
+.conteaner{
+  background: #3dc78e  ;
+  margin: -8px;
   font-family: Arial, Helvetica, sans-serif;
+  border: 10px solid #3dc78e;
+}
+.icon-setting{
+  margin-left: 538px;
+  font-size: large;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-setting{
+  margin-top: -27.5px;
+  margin-left: 480px;
+  font-size: large;
 }
 .list {
   width: 350px;
@@ -14,7 +27,9 @@ body {
   font-weight: bold;
   transition: all 0.2s ease-in-out;
   border-radius: 7px;
-
+  margin: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 .input {
   height: 30px;
@@ -26,6 +41,19 @@ body {
 .btn {
   background: rgb(255,255,126);
   background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
+  color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    border: none;
 }
 .check {
   margin: -2px;
@@ -44,7 +72,28 @@ body {
   margin-top: 11px;
   background-color: "#f2599c";
 }
-.thistab {
-  background: rgb(255,255,126);
-  background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
+.tab{
+  border: none;
+  margin: 3px;
+  background-color: unset;
+  font-size: 15px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+.thistab {
+  background: linear-gradient(90deg, rgba(255,255,126,1) 100%, rgba(0,255,171,0.14609593837535018) 100%);
+  color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    border: none;
+}
+
+

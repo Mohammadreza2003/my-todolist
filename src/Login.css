@@ -1,13 +1,15 @@
-body {
-  background: linear-gradient(to right, #43f061, #12e7dd);
-  height: 97vh;
+.background-conteaner {
+  background: #3dc78e;
+  margin: -8px;
   font-family: Arial, Helvetica, sans-serif;
+  height: 605px;
+  border: 10px solid #3dc78e;
 }
-.container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+.background-darkmode {
+  background: #031929;
+  height: 97pvh;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 10px solid #031929;
 }
 form {
   padding: 3em;
@@ -20,6 +22,10 @@ form {
   backdrop-filter: blur(6px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 form img {
@@ -74,6 +80,22 @@ form input {
   border-radius: 50px;
   margin-left: 5px;
 }
+.buttonDark {
+  background: rgb(0, 78, 153);
+  color:white;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 50px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: none;
+}
 .button:hover {
   cursor: pointer;
 }
@@ -94,32 +116,18 @@ form:hover {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
+.linkDarkMode {
+  border-bottom: 0.5px solid white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
+}
 .p{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
-.drop {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  position: absolute;
-  transition: all 0.2s ease;
-}
-.drop-1 {
-  background: linear-gradient(to right, #ffdd00, #fbb034);
-  height: 80px;
-  width: 80px;
-  top: -20px;
-  left: -40px;
-  z-index: -1;
+.h2 {
+  text-align: center;
 }
 
-.drop-2 {
-  background: linear-gradient(to right, #ff145f, #ffc42d);
-  height: 80px;
-  width: 80px;
-  bottom: 90px;
-  right: -50px;
-  z-index: -1;
-  border-radius: 50%;
-}
+

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import "./Settings.css";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -6,48 +6,52 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import Button from "@material-ui/core/Button";
+import { themeContext } from "./App";
 import { Link } from 'react-router-dom'
 function Settings() {
-  const [theme, setTheme] = React.useState('');
-
+  const theme = useContext(themeContext)
+  const [currentDarkMode, setCurrentDarkMode] = useState(theme.darkMode);
   const handleChange = (event) => {
-    console.log(event.target.value);
-    setTheme(event.target.value);
+    setCurrentDarkMode(event.target.value);
   };
-
   return (
-
-    <Box sx={{ minWidth: 120 }}>
-      <h1 className={"h1"}>Setting</h1>
+    <Box sx={{ minWidth: 120 }}className={(" contean") + (theme.darkMode === "dark" ? " contean-darkmode" : " ")}>
+      <div className={"back-to-home"}>
+        <h1 className={("h1 ") + (theme.darkMode === "dark" ? " h1-DarkMode" : " ")}>Setting</h1>
       <Link className={"Lik"} to="/">
         {" "}
-        <ChevronLeftIcon className={"back"}/>
+        <ChevronLeftIcon className={"back"} color="secondary" />
       </Link>
-      <p className={"Home"}>Home</p>
+      <p className={("Home ")+(theme.darkMode === "dark" ? " textDarkMode" : " ")}>Home</p>
+      <br />
+      <Link className={"Lik"} to="/login">
+        {" "}
+        <p className={("logout")+(theme.darkMode === "dark" ? " textDarkMode" : " ")}>Log out</p>
+      </Link>
+      </div>
+      
       <br/>
       <div className={"backgroundForm"}>
-      <p className={"Theme"}>Theme:</p> 
+        <p className={("Theme ")+ (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Theme:</p>
         <FormControl className={"form"}>
-          <InputLabel id="demo-simple-select-label">light</InputLabel>
+          <InputLabel id="demo-simple-select-label">Light</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={theme}
-            label="Dark or light"
+            value={currentDarkMode}
+            label="Light"
             onChange={handleChange}
           >
-            <MenuItem value={"dark"}>Light</MenuItem>
-            <br/>
-            <MenuItem value={"light"}>Dark</MenuItem>
+            <MenuItem value={"light"}><spam className={theme.darkMode === "dark" ? " textDark" : " "}>Light</spam></MenuItem>
+            <br />
+            <MenuItem value={"dark"}><spam className={theme.darkMode === "dark" ? " textDark" : " "}>Dark</spam></MenuItem>
           </Select>
         </FormControl>
-        <button className={"but"} onClick={() => { }}>Save</button>
+        {currentDarkMode !== theme.darkMode && (
+          <button className={"but"} onClick={() => { theme.setdarkMode(currentDarkMode) }}>Save</button>
+        )}
       </div>
-
-
     </Box>
-
   );
 }
 export default Settings;
