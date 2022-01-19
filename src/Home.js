@@ -8,7 +8,8 @@ import Welcome from "./Welcome";
 import Sponsor from "./Sponsor";
 import { themeContext } from "./App";
 import { Link } from 'react-router-dom'
-import SettingsIcon from '@mui/icons-material/Settings';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
 function Home() {
   const [currentTab, setCurrentTab] = useState("doing");
   const [toDoList, setToDoList] = useState([]);
@@ -30,11 +31,12 @@ function Home() {
 
   return (
     <div className={(" conteaner") + (theme.darkMode === "dark" ? " conteaner-darkmode" : " ")}>
-      <Link className={"icon-setting"} to="/Settings">
-        {" "}
-        <SettingsIcon className={"back"} color="secondary" />
-      </Link>
-      <p className={("text-setting") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Setting</p>
+      <div className={"icon-setti"}>
+        <Link className={"icon-setting"} to="/Settings">
+          <p className={("text-setting") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Setting</p>
+          <FontAwesomeIcon icon={faCog} className={"faCog"} />
+        </Link>
+      </div>
       <div className={"list"}>
         <Welcome name="mammad" />
         <button

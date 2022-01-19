@@ -5,9 +5,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { themeContext } from "./App";
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 function Settings() {
   const theme = useContext(themeContext)
   const [currentDarkMode, setCurrentDarkMode] = useState(theme.darkMode);
@@ -15,24 +16,20 @@ function Settings() {
     setCurrentDarkMode(event.target.value);
   };
   return (
-    <Box sx={{ minWidth: 120 }}className={(" contean") + (theme.darkMode === "dark" ? " contean-darkmode" : " ")}>
-      <div className={"back-to-home"}>
+    <Box sx={{ minWidth: 120 }} className={(" contean") + (theme.darkMode === "dark" ? " contean-darkmode" : " ")}>
+      <div className={("back-to-home ") + (theme.darkMode === "dark" ? "  borderDarkMode" : " ")}>
+        <Link className={"Lik"} to="/">
+          <FontAwesomeIcon icon={faChevronLeft} className={"back"} />
+          <p className={("Home ") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Home</p>
+        </Link>
         <h1 className={("h1 ") + (theme.darkMode === "dark" ? " h1-DarkMode" : " ")}>Setting</h1>
-      <Link className={"Lik"} to="/">
-        {" "}
-        <ChevronLeftIcon className={"back"} color="secondary" />
-      </Link>
-      <p className={("Home ")+(theme.darkMode === "dark" ? " textDarkMode" : " ")}>Home</p>
-      <br />
-      <Link className={"Lik"} to="/login">
-        {" "}
-        <p className={("logout")+(theme.darkMode === "dark" ? " textDarkMode" : " ")}>Log out</p>
-      </Link>
+        <Link className={"logout"} to="/login">
+          <p className={("text-logout ") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Log out</p>
+        </Link>
       </div>
-      
-      <br/>
+      <br />
       <div className={"backgroundForm"}>
-        <p className={("Theme ")+ (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Theme:</p>
+        <p className={("Theme ") + (theme.darkMode === "dark" ? " textDarkMode" : " ")}>Theme:</p>
         <FormControl className={"form"}>
           <InputLabel id="demo-simple-select-label">Light</InputLabel>
           <Select

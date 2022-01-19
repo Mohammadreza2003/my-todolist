@@ -2,11 +2,14 @@ import React from "react";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Checkbox } from "@material-ui/core";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faHeart} from '@fortawesome/free-solid-svg-icons'
 import { useState,useContext } from "react";
 import { themeContext } from "./App";
 import "./Home.css";
 import "./Home";
 import "./Darkmode.css";
+
 function Todo(props) {
   const [newDotext, setnewDotext] = useState("");
   const theme = useContext(themeContext)
@@ -33,7 +36,7 @@ function Todo(props) {
     <>
       <div className={"list"}>
         <input onChange={onchangevalue} className={"input"}  onKeyDown={handleKeyDown}></input>
-        <button variant="contained" className={(" btn")+( theme.darkMode === "dark" ? " buttonDarkMode" : " ")} onClick={addDo}>
+        <button variant="contained" className={(" btn")+( theme.darkMode === "dark" ? " button-dark" : " ")} onClick={addDo}>
           add
         </button>
 
@@ -42,7 +45,6 @@ function Todo(props) {
             {todo}
             <Checkbox
               className={"check"}
-              color="secondary"
               onChange={() => {
                 props.onDonePressed(todo);
               }}

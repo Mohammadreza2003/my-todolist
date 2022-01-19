@@ -1,9 +1,12 @@
+.body{
+  margin: 0px;
+}
 .background-conteaner {
-  background: #3dc78e;
+  background: #B1D0E0;
   margin: -8px;
   font-family: Arial, Helvetica, sans-serif;
-  height: 605px;
-  border: 10px solid #3dc78e;
+  height: 623px;
+  padding: 1px;
 }
 .background-darkmode {
   background: #031929;
@@ -74,11 +77,14 @@ form input {
   width: 150px;
   height: 63px;
   font-size: 1rem;
-  background: rgb(255,255,126);
+  background: #FFC286;
   color:black;
   border: none;
   border-radius: 50px;
   margin-left: 5px;
+  font-size: 19px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
 }
 .buttonDark {
   background: rgb(0, 78, 153);

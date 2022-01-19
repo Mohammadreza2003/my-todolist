@@ -1,9 +1,12 @@
+.body {
+  margin: 0px;
+}
 .contean {
-  background: #3dc78e;
+  background: #B1D0E0;
   margin: -8px;
   font-family: Arial, Helvetica, sans-serif;
-  height: 605px;
-  border: 10px solid #3dc78e;
+  height: 623px;
+  padding: 1px;
 }
 .contean-darkmode {
   background: #031929;
@@ -13,15 +16,41 @@
 }
 .back-to-home{
   width: 100%;
-  display: flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.63);
+    border-radius: 1px;
+}
+.borderDarkMode{
+  border-bottom: 3px solid rgba(255, 255, 255, 0.692);
+  border-radius: 1px;
+}
+.Lik {
+  font-size: large;
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  width: 5%;
+}
+.Home {
+  font-size: large;
+  color: #000;
+}
+.textDarkMode {
+  color: white;
+}
+.back {
+  color: #FFC286;
+  font-size: 24px;
+  margin-right: 4px;
 }
 .h1 {
   text-align: center;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.63);
-  border-radius: 1px;
-  margin-top: -7px;
+  margin-top: 10px;
+  margin-right: 529px;
+  margin-left: 529px;
 }
 .h1-DarkMode {
   text-align: center;
@@ -29,27 +58,19 @@
   margin-top: -7px;
   color: white;
 }
-.Lik {
-  border-bottom: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-  text-align: center;
+.logout {
+  font-size: large;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.text-logout {
+  font-size: large;
   color: #000;
 }
-.back {
-  margin-top: -55.5px;
-}
-.Home {
-  margin-top: -53.5px;
-  margin-left: 18px;
-  font-size: large;
-}
-.logout {
-  margin-top: -53.5px;
-  margin-left: 538px;
-  font-size: large;
+.textDarkMode {
+  color: white;
 }
 .Theme {
   margin-right: 10px;
@@ -77,12 +98,7 @@
   width: 131px;
 }
 .but {
-  background: rgb(255, 255, 126);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 126, 1) 100%,
-    rgba(0, 255, 171, 0.14609593837535018) 100%
-  );
+  background: #FFC286;
   border: none;
   border-radius: 8px;
   padding: 3px 6px;
